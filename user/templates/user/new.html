@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+        {% block right-panel-content %}
+        <div class="container-fluid">
+        <form action="{% url 'new' %}" method='post' autocomplete="on" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field.errors }}
+                        {{ field }}
+                </div>
+                {% endfor %}
+            <div class="form-group">
+            <label for="id_pic">小说图片:</label><input type="file" name="pic" accept="image/*" required id="id_pic"></
+            </div>
+                    <button type="reset"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="submit"><span class="glyphicon glyphicon-ok"></span></button>
+
+
+	</form>
+	</div>
+        {% endblock %}

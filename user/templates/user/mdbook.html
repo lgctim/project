@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+<h3 style="text-align:center">茅盾文学奖图书</h3>
+{% for i in book %}
+<div class="container-fluid">
+	<div class="row clearfix">
+		<div class="col-md-3 column">
+			<img alt="140x140" src="/static/shop/{{ i.pic }}" width=200px  height=200px />
+		</div>
+		<div class="col-md-7 column">
+			<h3>
+				<a href="{% url 'book' i.id %}">	{{ i.title }}</a>
+			</h3>
+			<p>{{ i.intro | slice:":100" }}......</p>
+			<p>浏览量:{{ i.num }}</p>
+		</div>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}

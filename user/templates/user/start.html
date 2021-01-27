@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>章节列表</th>
+        <th>点击阅读</th>
+        {% if book.author == request.session.name %}<th><a href="{% url 'newca' book.id %}">新增章节</a></th>{% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in chapter %}
+        <tr>
+            <td>
+                {{ i.title }}
+            </td>
+            <td>
+                <a href="{% url 'content' i.id %}" class="btn btn-primary">点击</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

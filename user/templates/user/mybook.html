@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>小说名</th>
+        <th>查看章节</th>
+        <th><a href="{% url 'new' %}">新建小说</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in book %}
+    <tr>
+        <td>{{ i.title }}</td>
+        <td><a href="{% url 'start' i.id %}">编辑</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+<div class="container">
+    <h1 style="text-align:center">{{ i.title }}</h1>
+    <h3 style="text-align:center">更新时间:{{ i.date }}</h3>
+    <h4>
+        {{ i.content }}
+    </h4>
+</div>
+{% endblock %}

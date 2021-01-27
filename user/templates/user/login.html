@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+        <div class="col-md-4 col-md-offset-4">
+        <form action="{% url 'login' %}" method='post' autocomplete="on">
+                {% csrf_token %}
+            <div class="form-group">
+                <label class="form-group">用户名</label>
+
+                <input class="form-control" name="username" type="text">
+                <a href="{% url 'register' %}">注册</a>
+            </div>
+            <div class="form-group">
+                <label class="form-group">密码</label>
+
+                <input class="form-control" name="password" type="password">
+                <a href="{% url 'begin' %}">找回密码</a>
+            </div>
+                    <button type="submit" class="btn btn-primary">登陆</button>     </div>
+        </form></div>
+    {% endblock %}

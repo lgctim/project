@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+<table class="table">
+        <thead>
+                <tr>
+                <th>书名</th>
+                <th>评论内容</th>
+                <th>评论时间</th>
+                <th>删除</th>
+                </tr>
+        </thead>
+        <tbody>
+                {% for i in commen %}
+                <tr>
+                        <td>{{ i.book.title }}</td>
+                        <td>{{ i.content }}</td>
+                        <td>{{ i.addtime }}</td>
+                        <td><a href="{% url 'delcom' i.id %}">删除</a></td>
+                </tr>
+                {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
+

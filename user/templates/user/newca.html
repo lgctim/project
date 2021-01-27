@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+        {% block right-panel-content %}
+        <div class="container-fluid">
+        <form action="{% url 'newca' book.id %}" method='post' autocomplete="on">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field.errors }}
+                        {{ field }}
+                </div>
+                {% endfor %}
+                    <button type="reset"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="submit"><span class="glyphicon glyphicon-ok"></span></button>
+        </form>
+            {% endblock %}
